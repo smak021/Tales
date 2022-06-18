@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "1011218788046",
+    "project_id": "socl-60618",
+    "storage_bucket": "socl-60618.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011218788046:android:70243ab09d18773f4aaa9f",
+        "android_client_info": {
+          "package_name": "com.example.socl"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1011218788046-r2nep10ksvrcos0qomd6bfdifs4cuncl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXJSYpNkSR5WS1YK0HanPBF0eI-ZgBW88"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1011218788046-r2nep10ksvrcos0qomd6bfdifs4cuncl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011218788046:android:f2be905efd91855d4aaa9f",
+        "android_client_info": {
+          "package_name": "com.example.tale"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1011218788046-r2nep10ksvrcos0qomd6bfdifs4cuncl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXJSYpNkSR5WS1YK0HanPBF0eI-ZgBW88"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1011218788046-r2nep10ksvrcos0qomd6bfdifs4cuncl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

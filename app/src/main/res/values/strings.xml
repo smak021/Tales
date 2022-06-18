@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Tales Beta</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="profile">Name</string>
+    <string name="home">Home</string>
+    <string name="Camera">Camera</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+</resources>

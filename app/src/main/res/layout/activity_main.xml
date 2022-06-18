@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_clayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.SMAK"
+    tools:context=".MainActivity">
+
+
+
+
+    <com.google.android.material.appbar.MaterialToolbar
+        app:title="Tale"
+        app:titleTextAppearance="@style/Toolbar.TitleText"
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?colorOnPrimary"
+        app:subtitleTextColor="?android:textColorPrimary"
+        app:titleTextColor="?android:textColorPrimary"
+        android:minHeight="?attr/actionBarSize"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/viewPager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+        <EditText
+            android:hint="Search"
+            android:textColorHint="@color/white"
+            android:id="@+id/searchBox"
+            android:visibility="gone"
+            android:padding="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:maxLines="1"
+            android:shadowRadius="@integer/material_motion_duration_long_1"
+            android:background="@drawable/search_border"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            />
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:animateLayoutChanges="true"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@id/tabLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+         />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="0dp"
+        app:tabIndicatorColor="#FFFF00"
+        app:tabMode="fixed"
+        android:animateLayoutChanges="true"
+        app:tabIndicatorAnimationMode="linear"
+        app:tabGravity="fill"
+        android:background="?attr/colorOnPrimary"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewPager"
+        app:tabIndicatorGravity="top">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabPost"
+            android:icon="@drawable/ic_baseline_camera_alt_24"
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"
+             />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabHome"
+            android:icon="@drawable/home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabProfile"
+            android:icon="@drawable/profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.tabs.TabLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:elevation="0dp"
+    android:layout_height="wrap_content">
+
+<LinearLayout
+    android:id="@+id/storyCard"
+    android:orientation="vertical"
+    android:layout_width="90dp"
+    android:layout_height="90dp"
+    android:layout_margin="10dp"
+   android:background="@drawable/gradient"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+<androidx.cardview.widget.CardView
+    android:layout_width="86dp"
+    android:layout_height="86dp"
+    app:cardCornerRadius="250dp"
+    android:layout_marginTop="2dp"
+    android:layout_gravity="center"
+    app:cardBackgroundColor="?attr/colorOnPrimary"
+    >
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:elevation="0dp"
+        app:cardCornerRadius="250dp">
+
+        <ImageView
+            android:id="@+id/story_thumb"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:elevation="0dp"
+            android:src="@drawable/temp2"
+            android:scaleType="centerCrop" />
+    </androidx.cardview.widget.CardView>
+
+</androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
