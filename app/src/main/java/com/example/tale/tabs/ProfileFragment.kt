@@ -6,11 +6,11 @@ import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import com.example.tale.R
 import com.example.tale.misc.FollowerActivity
 import com.example.tale.misc.SettingsActivity
 import com.example.tale.model.*
 import com.google.android.material.tabs.TabLayout
+import com.example.tale.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 import kotlinx.coroutines.*

@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.tale.R
 import com.example.tale.misc.PostPreviewActivity
 import com.google.android.material.tabs.TabLayout
+import com.example.tale.R
 
 
 class PostFragment : Fragment() {

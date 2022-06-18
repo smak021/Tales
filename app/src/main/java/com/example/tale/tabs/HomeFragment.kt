@@ -13,10 +13,10 @@ import androidx.dynamicanimation.animation.FlingAnimation
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tale.R
 import com.example.tale.adapters.StoryListAdapter
 import com.example.tale.model.*
 import com.google.android.material.tabs.TabLayout
+import com.example.tale.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import kotlinx.coroutines.CoroutineScope

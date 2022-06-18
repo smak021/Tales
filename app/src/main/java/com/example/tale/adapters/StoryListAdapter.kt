@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.tale.R
 import com.example.tale.misc.StoryActivity
+import com.example.tale.R
 import kotlinx.android.synthetic.main.circular_image.view.*
 
 

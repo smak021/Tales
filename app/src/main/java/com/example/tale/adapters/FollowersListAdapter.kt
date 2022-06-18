@@ -3,9 +3,9 @@ package com.example.tale.adapters
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
+import com.example.tale.R
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tale.R
 import com.example.tale.model.FollowersDetails
 import kotlinx.android.synthetic.main.followers_layout.view.*
 
