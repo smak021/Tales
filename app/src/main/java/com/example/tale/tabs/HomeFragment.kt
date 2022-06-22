@@ -11,12 +11,15 @@ import androidx.core.view.isVisible
 import androidx.dynamicanimation.animation.DynamicAnimation
 import androidx.dynamicanimation.animation.FlingAnimation
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tale.adapters.StoryListAdapter
 import com.example.tale.model.*
 import com.google.android.material.tabs.TabLayout
 import com.example.tale.R
+import com.example.tale.viewModel.HomeFragmentViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import kotlinx.coroutines.CoroutineScope
@@ -42,20 +45,26 @@ class HomeFragment : Fragment() {
     ): View? {
         (activity as AppCompatActivity).supportActionBar?.show()
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_home, container, false)
-
-        val recyclerView = view?.findViewById<RecyclerView>(R.id.story_recycler)
+        val homeView = inflater.inflate(R.layout.fragment_home, container, false)
+        val recyclerView = homeView?.findViewById<RecyclerView>(R.id.story_recycler)
         recyclerView?.layoutManager = GridLayoutManager(context, 4)
-        adapter = StoryListAdapter(activity, mapp)
-        recyclerView?.adapter = adapter
+        val viewModel = ViewModelProvider(this)[HomeFragmentViewModel::class.java]
+        viewModel.fetchStory()
+        viewModel.testData.observe(viewLifecycleOwner, Observer {
+            adapter = StoryListAdapter(activity,it)
+            recyclerView?.adapter = adapter
+        })
 
-        CoroutineScope(IO).launch {
-            updateData()
-        }
+        //adapter = StoryListAdapter(activity, mapp)
+        //recyclerView?.adapter = adapter
+
+        //CoroutineScope(IO).launch {
+          //  updateData()
+        //}
 
 
-        iniRefreshListener(view)
-        return view
+        iniRefreshListener(homeView)
+        return homeView
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -141,29 +150,10 @@ class HomeFragment : Fragment() {
     }
 
 
-    //Background fetch
-    private suspend fun updateData() {
-        println("Thread Name: ${Thread.currentThread().name}")
-        FollowCheck.followers()
-        updateAdapter()
-
-    }
-
-    private suspend fun updateAdapter() {
-        withContext(Main)
-        {
-            delay(500)
-
-            adapter.notifyDataSetChanged()
-        }
-    }
-
     private fun iniRefreshListener(view: View) {
         view.refreshLayout.setOnRefreshListener { // This method gets called when user pull for refresh,
             // You can make your API call here,
-            CoroutineScope(IO).launch {
-                updateData()
-            }
+           adapter.notifyDataSetChanged()
             val handler = Handler()
             handler.postDelayed({
                 if (view.refreshLayout.isRefreshing) {

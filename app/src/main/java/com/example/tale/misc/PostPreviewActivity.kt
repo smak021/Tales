@@ -13,13 +13,17 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.tale.MainActivity
 import com.example.tale.R
 import com.example.tale.model.storageRef
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.activity_post_preview.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -39,6 +43,10 @@ class PostPreviewActivity : AppCompatActivity() {
         { uri ->
             if (uri != null) {
                 imagePreview.setImageURI(uri)
+                Glide.with(this).load(uri)
+                    .apply(RequestOptions.bitmapTransform(BlurTransformation(25, 5)))
+                    .apply(RequestOptions().override(150, 150))
+                    .into(iv_outer)
                 loc = uri
                 val getName = uri.getName(this)
                 exten = getName?.substring(getName.lastIndexOf("."))
@@ -58,6 +66,20 @@ class PostPreviewActivity : AppCompatActivity() {
 
             addStorage(loc, filename, email, time)
         }
+    }
+
+    override fun onBackPressed() {
+        MaterialAlertDialogBuilder(this, com.google.android.material.R.style.ThemeOverlay_MaterialComponents_MaterialAlertDialog)
+            .setTitle("Are you sure?")
+            .setMessage("Your selection will be discarded")
+            .setNegativeButton("Discard"){ dialog,which ->
+                super.onBackPressed()
+            }
+            .setPositiveButton("Cancel"){ dialog, which ->
+
+            }
+            .show()
+
     }
 
     //function to add images to cloud storage

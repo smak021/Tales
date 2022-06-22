@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tale.model.FollowersDetails
 import kotlinx.android.synthetic.main.followers_layout.view.*
 
-class FollowersListAdapter(private val context: Context?, list: MutableList<FollowersDetails>?) : RecyclerView.Adapter<FollowersListAdapter.ViewHolder>(){
-    private var followersListt = mutableListOf<FollowersDetails>()
+class FollowersListAdapter(private val context: Context?, list: ArrayList<FollowersDetails>?) : RecyclerView.Adapter<FollowersListAdapter.ViewHolder>(){
+    private var followersListt = ArrayList<FollowersDetails>()
     init {
         if (list != null) {
             followersListt= list

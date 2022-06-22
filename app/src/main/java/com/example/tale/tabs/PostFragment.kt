@@ -18,15 +18,15 @@ class PostFragment : Fragment() {
     ): View? {
 
         // Inflate the layout for this fragment
-        val v= inflater.inflate(R.layout.fragment_post, container, false)
+        val postView= inflater.inflate(R.layout.fragment_post, container, false)
 
-        val cardView = v.findViewById<com.google.android.material.card.MaterialCardView>(R.id.pic_select)
+        val cardView = postView.findViewById<com.google.android.material.card.MaterialCardView>(R.id.pic_select)
         cardView.setOnClickListener{
            val intent= Intent(context, PostPreviewActivity::class.java)
             startActivity(intent)
         }
 
-        return  v
+        return  postView
 
     }
 

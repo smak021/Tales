@@ -20,14 +20,14 @@
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/notification.xml" value="0.1725" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/profile.xml" value="0.1695" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/settings.xml" value="0.1" />
-        <entry key="..\:/Apps/Tale/app/src/main/res/drawable/splash_screen.xml" value="0.1315" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/drawable/splash_screen.xml" value="0.1" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/story_border.xml" value="0.166" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/stry_brdr.xml" value="0.14666666666666667" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/welcome_border.xml" value="0.1695" />
         <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_follower.xml" value="0.22" />
         <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_login.xml" value="0.14666666666666667" />
         <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_post_preview.xml" value="0.3333333333333333" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_post_preview.xml" value="0.12242090784044017" />
         <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_register.xml" value="0.22" />
         <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_search.xml" value="0.13424540401881147" />
         <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_settings.xml" value="0.1" />
@@ -41,6 +41,7 @@
         <entry key="..\:/Apps/Tale/app/src/main/res/menu/menu.xml" value="0.22" />
         <entry key="..\:/Apps/Tale/app/src/main/res/menu/profmenu.xml" value="0.1" />
         <entry key="..\:/Apps/Tale/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1315" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/mipmap-anydpi-v26/tales_launcher.xml" value="0.1" />
         <entry key="..\:/Apps/Tale/app/src/main/res/mipmap-anydpi-v26/tales_launcher_round.xml" value="0.1315" />
       </map>
     </option>

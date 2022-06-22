@@ -56,6 +56,12 @@ dependencies {
     implementation "com.airbnb.android:lottie:5.2.0"
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0-rc02")
+    // ViewModel utilities for Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.0-rc02")
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0-rc02")
 
 }
 

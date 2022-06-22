@@ -4,7 +4,7 @@
     <item android:drawable="?attr/colorOnPrimary" />
     <item>
         <bitmap
-            android:src="@drawable/app_logo"
+            android:src="@drawable/splash_logo"
             android:gravity="center"/>
     </item>
 </layer-list>

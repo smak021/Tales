@@ -4,6 +4,7 @@ class FollowersDetails {
     private var followerName: String? = null
     private var followerEmail: String? = null
 
+
     fun setfollowerName(followerName: String?){
         this.followerName = followerName
     }

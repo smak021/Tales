@@ -10,11 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tale.misc.StoryActivity
 import com.example.tale.R
+import com.example.tale.model.StoryDetails
 import kotlinx.android.synthetic.main.circular_image.view.*
 
 
-class StoryListAdapter(private val context: Context?, finall: LinkedHashMap<String, MutableList<Any>>): RecyclerView.Adapter<StoryListAdapter.ViewHolder>()  {
-    private var list = hashMapOf<String, MutableList<Any>>()
+class StoryListAdapter(private val context: Context?, finall: LinkedHashMap<String, ArrayList<StoryDetails>>): RecyclerView.Adapter<StoryListAdapter.ViewHolder>() {
+    private var list = hashMapOf<String, ArrayList<StoryDetails>>()
     init {
         list = finall
     }
@@ -27,19 +28,17 @@ class StoryListAdapter(private val context: Context?, finall: LinkedHashMap<Stri
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val storyCard =
                 holder.itemView.findViewById<LinearLayout>(R.id.storyCard)
-                val keys = ArrayList<Any>(list.keys)
-                val urls = ArrayList<Any>(list.values)
-                val urlSet= urls[position] as ArrayList<Any>
+              val keys = ArrayList<Any>(list.keys)
                 val name = keys[position] as String
-                //val urlList = extract(list, position) as ArrayList<Any>
-               // holder.itemView.story_name.text = keys[position].toString()
-                Glide.with(holder.itemView).load(urlSet[0]).centerCrop()
+                val urls: ArrayList<StoryDetails>? = list[name]
+                val last: StoryDetails? = urls?.get(0)
+                Glide.with(holder.itemView).load(last?.geturl()).centerCrop()
                     .into(holder.itemView.story_thumb)
-
                 storyCard.setOnClickListener {
                     val myIntent =
-                        Intent(context, StoryActivity::class.java).putExtra("url", urlSet).putExtra("name", name)
-                    holder.itemView.context.startActivity(myIntent)
+                      Intent(context, StoryActivity::class.java).putExtra("url", urls).putExtra("name", name)
+                          .putExtra("position",position)
+                        holder.itemView.context.startActivity(myIntent)
                 }
     }
 

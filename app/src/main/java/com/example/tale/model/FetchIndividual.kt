@@ -1,9 +1,13 @@
 package com.example.tale.model
 
+import androidx.lifecycle.MutableLiveData
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
-val userDetails:UserDetails = UserDetails()
+var userData = MutableLiveData<ArrayList<UserDetails>>()
+val array= ArrayList<UserDetails>()
+val userDetails: UserDetails = UserDetails()
 var followers:MutableList<FollowersDetails>? = mutableListOf()
 
 object FetchIndividual {
@@ -25,7 +29,6 @@ object FetchIndividual {
             followers?.clear()
                 for (docs in it)
                 {
-
                     val followerDet =FollowersDetails()
                     followerDet.setfollowerName(docs.data["name"].toString())
                     followerDet.setfollowerEmail(docs.data["email"].toString())
@@ -38,26 +41,19 @@ object FetchIndividual {
     }
 
 
-    fun fetchDetails(userid:String):UserDetails{
-
+    fun fetchDetails(userid:String):MutableLiveData<ArrayList<UserDetails>>{
         val db = Firebase.firestore
         db.collection("users").whereEqualTo("email",userid).get().addOnSuccessListener {
+
             for (docs in it)
             {
-                if (docs.data["full_name"]!=null){
-                    userDetails.setfirstName(docs.data["full_name"] as String?)
-                }
-                if (docs.data["email"]!=null){
-                    userDetails.setemail(docs.data["email"] as String)
-                }
-                if (docs.data["phone"]!=null){
-                    userDetails.setphoneNo(docs.data["phone"] as String)
-                }
+               array.add(docs.toObject(UserDetails::class.java))
+                userData.value= array
 
             }
 
         }
 
-        return userDetails
+        return userData
     }
 }

@@ -6,15 +6,17 @@ import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.tale.misc.FollowerActivity
 import com.example.tale.misc.SettingsActivity
 import com.example.tale.model.*
 import com.google.android.material.tabs.TabLayout
 import com.example.tale.R
+import com.example.tale.viewModel.ProfileFragmentViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 import kotlinx.coroutines.*
-import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
 
 var userDetails: UserDetails = UserDetails()
@@ -25,10 +27,6 @@ class ProfileFragment : Fragment() {
         super.onCreate(savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.show()
         setHasOptionsMenu(true)
-        CoroutineScope(IO).launch {
-            updateName()
-
-        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -50,7 +48,6 @@ class ProfileFragment : Fragment() {
         }
         (activity as AppCompatActivity).searchBox.visibility = View.GONE
 
-
     }
 
     override fun onCreateView(
@@ -58,13 +55,27 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val v = inflater.inflate(R.layout.fragment_profile, container, false)
+        val profileView = inflater.inflate(R.layout.fragment_profile, container, false)
 
-        v.followingLayout.setOnClickListener {
-            startActivity(Intent(v.context, FollowerActivity::class.java))
+        val viewModel = ViewModelProvider(this)[ProfileFragmentViewModel::class.java]
+        viewModel.fetchUserData()
+        viewModel.testData.observe(viewLifecycleOwner) {
+            if (it.isNotEmpty()) {
+
+                profileView.textView.text = it[0].getfull_name().toString()
+            }
+        }
+        viewModel.fetchFollowersList()
+        viewModel.followers.observe(viewLifecycleOwner, Observer {
+            println(it.size.toString())
+            profileView.following_count.text = it.size.toString()
+        })
+
+        profileView.followingLayout.setOnClickListener {
+            startActivity(Intent(profileView.context, FollowerActivity::class.java))
 
         }
-        return v
+        return profileView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -80,23 +91,6 @@ class ProfileFragment : Fragment() {
         (activity as AppCompatActivity).viewPager.setPageTransformer(null)
     }
 
-    private suspend fun updateName() {
-        //delay(1000)
-        userDetails = FetchIndividual.fetchDetails(uid!!)
-        updateUI(userDetails)
-    }
 
-    private suspend fun updateUI(userDetails: UserDetails?) {
-        withContext(Main)
-        {
-            delay(500)
-            println("Hello")
-            println(userDetails?.getfirstName())
-            if (userDetails?.getfirstName() != null)
-                view?.textView?.text = userDetails.getfirstName()
-            view?.following_count?.text = followersList.size.toString()
-
-        }
-    }
 }
 

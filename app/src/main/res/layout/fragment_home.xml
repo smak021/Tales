@@ -24,6 +24,19 @@
 
     </com.example.tale.misc.NestedScrollableHost>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:id="@+id/empty"
+        android:visibility="gone"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="No Stories. Follow more people"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        />
+
     <FrameLayout
         android:visibility="gone"
         android:id="@+id/welcomeLayout"

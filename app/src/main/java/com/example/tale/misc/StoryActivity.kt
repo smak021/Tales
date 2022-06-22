@@ -9,20 +9,24 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.tale.R
+import com.example.tale.model.StoryDetails
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.activity_story.*
+import java.io.Serializable
 
-class StoryActivity : AppCompatActivity() {
+class StoryActivity : AppCompatActivity(){
     private var i = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_story)
         i = 0
-        val url: ArrayList<Any> = intent.getSerializableExtra("url") as ArrayList<Any>
+        val url:ArrayList<StoryDetails> = intent.getSerializableExtra("url") as ArrayList<StoryDetails>
         val name: String = intent.getSerializableExtra("name") as String
-        println(name)
+        val position:Int = intent.getSerializableExtra("position") as Int
+        //println(url.get(i).geturl())
+
         storyName.text = name
-        updateGlide(url[i], this)
+       updateGlide(url[i].geturl()!!, this)
         story_viewer.keepScreenOn = true
         story_viewer.setOnTouchListener { p0, p1 ->
             val halfWidth = p0?.width!! / 2
@@ -30,11 +34,11 @@ class StoryActivity : AppCompatActivity() {
                 MotionEvent.ACTION_DOWN -> {
                     if ((halfWidth <= p1.x) && ((url.size - 1) > i)) {
                         i += 1
-                        updateGlide(url[i], story_viewer.context)
+                        updateGlide(url[i].geturl()!!, story_viewer.context)
                     } else
                         if ((halfWidth > p1.x) && (i != 0)) {
                             i -= 1
-                            updateGlide(url[i], story_viewer.context)
+                            updateGlide(url[i].geturl()!!, story_viewer.context)
                         } else {
                             i = 0
                             finish()
@@ -59,7 +63,7 @@ class StoryActivity : AppCompatActivity() {
 
     }
 
-    private fun updateGlide(url: Any, context: Context) {
+    private fun updateGlide(url: String, context: Context) {
         Glide.with(context).load(url)
             .apply(RequestOptions.bitmapTransform(BlurTransformation(25, 5)))
             .apply(RequestOptions().override(150, 150)).into(background_blur)
