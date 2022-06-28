@@ -34,6 +34,7 @@ class StoryListAdapter(private val context: Context?, finall: LinkedHashMap<Stri
                 val last: StoryDetails? = urls?.get(0)
                 Glide.with(holder.itemView).load(last?.geturl()).centerCrop()
                     .into(holder.itemView.story_thumb)
+                //holder.itemView.ownerTextView.text = name
                 storyCard.setOnClickListener {
                     val myIntent =
                       Intent(context, StoryActivity::class.java).putExtra("url", urls).putExtra("name", name)

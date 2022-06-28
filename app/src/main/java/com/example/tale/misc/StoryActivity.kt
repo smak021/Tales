@@ -1,18 +1,19 @@
 package com.example.tale.misc
 
 
-import android.content.Context
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
 import com.bumptech.glide.request.RequestOptions
 import com.example.tale.R
 import com.example.tale.model.StoryDetails
+import com.example.tale.viewModel.StoryViewModel
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.activity_story.*
-import java.io.Serializable
 
 class StoryActivity : AppCompatActivity(){
     private var i = 0
@@ -22,25 +23,33 @@ class StoryActivity : AppCompatActivity(){
         i = 0
         val url:ArrayList<StoryDetails> = intent.getSerializableExtra("url") as ArrayList<StoryDetails>
         val name: String = intent.getSerializableExtra("name") as String
-        val position:Int = intent.getSerializableExtra("position") as Int
-        //println(url.get(i).geturl())
+        val pos:Int = intent.getSerializableExtra("position") as Int
 
-        storyName.text = name
-       updateGlide(url[i].geturl()!!, this)
+        val viewModel = ViewModelProvider(this)[StoryViewModel::class.java]
+        viewModel.position.observe(this) {
+            storyTime.text = url[it].gettime()?.toDate()?.toString()
+            storyName.text = name
+
+            Glide.with(this).load(url[it].geturl())
+                .apply(RequestOptions.bitmapTransform(BlurTransformation(25, 5)))
+                .apply(RequestOptions().override(150, 150)).into(background_blur)
+            Glide.with(this).load(url[it].geturl())
+                .transition(withCrossFade())
+                .into(story_viewer)
+        }
+
         story_viewer.keepScreenOn = true
         story_viewer.setOnTouchListener { p0, p1 ->
             val halfWidth = p0?.width!! / 2
             when (p1?.action) {
                 MotionEvent.ACTION_DOWN -> {
-                    if ((halfWidth <= p1.x) && ((url.size - 1) > i)) {
-                        i += 1
-                        updateGlide(url[i].geturl()!!, story_viewer.context)
+                    if ((halfWidth <= p1.x) && ((url.size - 1) > viewModel.position.value!!)) {
+                        viewModel.incrementData()
                     } else
-                        if ((halfWidth > p1.x) && (i != 0)) {
-                            i -= 1
-                            updateGlide(url[i].geturl()!!, story_viewer.context)
+                        if ((halfWidth > p1.x) && (viewModel.position.value != 0)) {
+                        viewModel.decrementData()
                         } else {
-                            i = 0
+                            viewModel.resetData()
                             finish()
                         }
                     p0.performClick()
@@ -50,7 +59,7 @@ class StoryActivity : AppCompatActivity(){
             p0.onTouchEvent(p1)
         }
         var count =0
-        val timer = object: CountDownTimer(15000, 15) {
+        val timer = object: CountDownTimer(30000, 30) {
             override fun onTick(millisUntilFinished: Long) {
                 linearProgressIndicator.progress = count++
             }
@@ -60,15 +69,6 @@ class StoryActivity : AppCompatActivity(){
             }
         }
         timer.start()
-
-    }
-
-    private fun updateGlide(url: String, context: Context) {
-        Glide.with(context).load(url)
-            .apply(RequestOptions.bitmapTransform(BlurTransformation(25, 5)))
-            .apply(RequestOptions().override(150, 150)).into(background_blur)
-        Glide.with(context).load(url).into(story_viewer)
-
 
     }
 

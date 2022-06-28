@@ -4,20 +4,19 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.tale.misc.FollowerActivity
 import com.example.tale.misc.SettingsActivity
 import com.example.tale.model.*
 import com.google.android.material.tabs.TabLayout
 import com.example.tale.R
+import com.example.tale.misc.FriendsDiscoveryActivity
 import com.example.tale.viewModel.ProfileFragmentViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
-import kotlinx.coroutines.*
-import kotlinx.coroutines.Dispatchers.Main
 
 var userDetails: UserDetails = UserDetails()
 
@@ -56,20 +55,20 @@ class ProfileFragment : Fragment() {
     ): View? {
 
         val profileView = inflater.inflate(R.layout.fragment_profile, container, false)
-
+        val button = profileView.findViewById<AppCompatButton>(R.id.addFriendsButton)
+        button.setOnTouchListener(this)
         val viewModel = ViewModelProvider(this)[ProfileFragmentViewModel::class.java]
         viewModel.fetchUserData()
         viewModel.testData.observe(viewLifecycleOwner) {
             if (it.isNotEmpty()) {
-
                 profileView.textView.text = it[0].getfull_name().toString()
             }
         }
         viewModel.fetchFollowersList()
-        viewModel.followers.observe(viewLifecycleOwner, Observer {
+        followersL.observe(viewLifecycleOwner) {
             println(it.size.toString())
             profileView.following_count.text = it.size.toString()
-        })
+        }
 
         profileView.followingLayout.setOnClickListener {
             startActivity(Intent(profileView.context, FollowerActivity::class.java))
@@ -88,9 +87,18 @@ class ProfileFragment : Fragment() {
 
         (activity as AppCompatActivity?)!!.supportActionBar!!.show()
         (activity as AppCompatActivity).findViewById<TabLayout>(R.id.tabLayout).isVisible = true
-        (activity as AppCompatActivity).viewPager.setPageTransformer(null)
     }
 
 
 }
+
+private fun AppCompatButton.setOnTouchListener(profileFragment: ProfileFragment) {
+
+    setOnClickListener {
+        profileFragment.context?.startActivity(Intent(profileFragment.context,FriendsDiscoveryActivity::class.java))
+
+    }
+
+}
+
 

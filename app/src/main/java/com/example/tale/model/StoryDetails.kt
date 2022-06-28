@@ -3,8 +3,7 @@ package com.example.tale.model
 import android.os.Parcel
 import android.os.Parcelable
 import com.google.firebase.Timestamp
-import kotlinx.android.parcel.Parcelize
-import java.io.Serializable
+
 
 
 class StoryDetails() : Parcelable {

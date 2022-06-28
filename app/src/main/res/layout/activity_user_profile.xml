@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorOnPrimary"
-    tools:context=".tabs.ProfileFragment">
+    tools:context=".misc.UserProfileActivity">
+
 
 
     <androidx.cardview.widget.CardView
@@ -187,28 +187,37 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-<LinearLayout
-    android:id="@+id/buttomLayout"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_margin="2dp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/profileBox"
-    app:layout_constraintEnd_toStartOf="@id/cardView2">
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/addFriendsButton"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/buttomLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Add People"
-        android:textColor="@color/white"
-        android:padding="10dp"
-        android:background="@drawable/button_design"
-        />
+        android:orientation="horizontal"
+        android:layout_margin="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileBox"
+        app:layout_constraintEnd_toStartOf="@id/cardView2">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/followButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Follow"
+            android:textColor="@color/white"
+            android:padding="10dp"
+            android:background="@drawable/button_design"
+            />
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Message"
+            android:textColor="@color/white"
+            android:padding="10dp"
+            android:background="@drawable/button_design"
+            />
 
 
-</LinearLayout>
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:orientation="vertical"
@@ -247,5 +256,6 @@
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

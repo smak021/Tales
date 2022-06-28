@@ -11,25 +11,18 @@ import androidx.core.view.isVisible
 import androidx.dynamicanimation.animation.DynamicAnimation
 import androidx.dynamicanimation.animation.FlingAnimation
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tale.adapters.StoryListAdapter
-import com.example.tale.model.*
+
 import com.google.android.material.tabs.TabLayout
 import com.example.tale.R
 import com.example.tale.viewModel.HomeFragmentViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.Dispatchers.Main
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
-var isFirst: Boolean = true
+
 
 class HomeFragment : Fragment() {
     private var isSearch = false
@@ -47,22 +40,15 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         val homeView = inflater.inflate(R.layout.fragment_home, container, false)
         val recyclerView = homeView?.findViewById<RecyclerView>(R.id.story_recycler)
-        recyclerView?.layoutManager = GridLayoutManager(context, 4)
+        recyclerView?.layoutManager = GridLayoutManager(homeView.context, 4)
+        //ViewModel for updating recycler data
         val viewModel = ViewModelProvider(this)[HomeFragmentViewModel::class.java]
         viewModel.fetchStory()
-        viewModel.testData.observe(viewLifecycleOwner, Observer {
-            adapter = StoryListAdapter(activity,it)
+        viewModel.testData.observe(viewLifecycleOwner) {
+            adapter = StoryListAdapter(homeView.context, it)
             recyclerView?.adapter = adapter
-        })
-
-        //adapter = StoryListAdapter(activity, mapp)
-        //recyclerView?.adapter = adapter
-
-        //CoroutineScope(IO).launch {
-          //  updateData()
-        //}
-
-
+        }
+        //Pull to refresh
         iniRefreshListener(homeView)
         return homeView
     }
@@ -140,12 +126,7 @@ class HomeFragment : Fragment() {
         super.onResume()
         (activity as AppCompatActivity?)!!.supportActionBar!!.show()
         (activity as AppCompatActivity).findViewById<TabLayout>(R.id.tabLayout).isVisible = true
-        //  (activity as AppCompatActivity).viewPager.setPageTransformer(ZoomOutPageTransformer(
-        //  (activity as AppCompatActivity).tabLayout,
-        //  (activity as AppCompatActivity).toolbar,
-        //    (activity as AppCompatActivity).viewPager
-        //))
-        (activity as AppCompatActivity).viewPager.setPageTransformer(null)
+
 
     }
 

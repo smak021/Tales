@@ -9,44 +9,129 @@
 
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/linearProgressIndicator"
+        style="@style/Widget.MaterialComponents.LinearProgressIndicator"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:indeterminate="false"
-        android:elevation="20dp"
-        android:max="1000"
-        app:indicatorColor="@color/white"
-        app:trackColor="#b5b3b3"
-        style="@style/Widget.MaterialComponents.LinearProgressIndicator"
-        android:layout_marginTop="10dp"
-        app:trackCornerRadius="20dp"
         android:layout_marginHorizontal="10dp"
         android:animationResolution="10"
+        android:elevation="20dp"
+        android:indeterminate="false"
+        android:max="1000"
+        android:layout_marginTop="5dp"
+        app:indicatorColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/story_viewer" />
-
-    <ImageView
-    android:id="@+id/background_blur"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:scaleType="centerCrop"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    android:src="@drawable/temp2"
-    />
-
-
-
-    <ImageView
-        android:id="@+id/story_viewer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitCenter"
-        android:src="@drawable/temp2"
-        android:adjustViewBounds="true"
-        android:keepScreenOn="true"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:trackColor="#b5b3b3"
+        app:trackCornerRadius="20dp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardImage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/linearProgressIndicator"
+        app:layout_constraintBottom_toTopOf="@id/frameLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="20dp"
+        >
+        <ImageView
+            android:id="@+id/background_blur"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/temp2"
+            />
+
+
+
+        <ImageView
+            android:id="@+id/story_viewer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/temp2"
+            android:adjustViewBounds="true"
+            android:keepScreenOn="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="#1b1c1c59"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/storyName"
+                android:elevation="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="16sp"
+                android:text="hello"/>
+
+            <TextView
+                android:id="@+id/storyTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="14sp"
+                android:text="hello"/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+<FrameLayout
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:inputType="textLongMessage"
+            android:id="@+id/messageEditext"
+            android:layout_width="0dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/sendButton"
+            android:hint="Send Message"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sendButton"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:backgroundTint="?android:textColorPrimary"
+            android:elevation="50dp"
+            app:cornerRadius="250dp"
+            app:icon="@drawable/share"
+            app:iconGravity="textEnd"
+            app:iconSize="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>
+
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -58,14 +143,5 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-<TextView
-    android:id="@+id/storyName"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    android:textColor="?android:textColorPrimary"
-    android:textSize="20sp"
-    android:layout_margin="20dp"
-    android:text="hello"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

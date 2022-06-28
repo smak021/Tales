@@ -11,7 +11,6 @@ import android.provider.OpenableColumns
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -25,6 +24,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.activity_post_preview.*
+import java.io.File
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -36,35 +36,26 @@ class PostPreviewActivity : AppCompatActivity() {
         setContentView(R.layout.activity_post_preview)
         val user = FirebaseAuth.getInstance().currentUser
         val email = user?.email
-        var loc: Uri? = null
-        var exten: String? = null
+        val exten: String? = null
         val time = Calendar.getInstance().time
-        val pickImage = registerForActivityResult(ActivityResultContracts.GetContent())
-        { uri ->
-            if (uri != null) {
-                imagePreview.setImageURI(uri)
-                Glide.with(this).load(uri)
-                    .apply(RequestOptions.bitmapTransform(BlurTransformation(25, 5)))
-                    .apply(RequestOptions().override(150, 150))
-                    .into(iv_outer)
-                loc = uri
-                val getName = uri.getName(this)
-                exten = getName?.substring(getName.lastIndexOf("."))
-            } else {
-                finish()
-            }
-        }
-        pickImage.launch("image/*")
+        val path: String = intent.getSerializableExtra("path") as String
+        Glide.with(this).load(path)
+            .into(imagePreview)
+        Glide.with(this).load(path)
+            .apply(RequestOptions.bitmapTransform(BlurTransformation(25, 5)))
+            .apply(RequestOptions().override(150, 150))
+            .into(iv_outer)
+        val pathUri = Uri.fromFile(File(path))
 
-        postButton.setOnClickListener {
+
+            postButton.setOnClickListener {
             circular_progress.visibility = View.VISIBLE
-
             val randomNumber: Int = Random().nextInt(100000)
             val dateTime = LocalDateTime.now()
             val tim = dateTime.format(DateTimeFormatter.ofPattern("ydMHmss"))
             val filename = "IMG_${randomNumber}_$tim$exten"
 
-            addStorage(loc, filename, email, time)
+            addStorage(pathUri, filename, email, time)
         }
     }
 
@@ -87,6 +78,7 @@ class PostPreviewActivity : AppCompatActivity() {
         if (uri != null) {
             val loc = storageRef.child("Stories/$filename")
             val ref = FirebaseStorage.getInstance().getReferenceFromUrl(loc.toString())
+            Log.d("Uri Test:", ref.toString())
 
             loc.putFile(uri).addOnCompleteListener {
                 circular_progress.visibility = View.INVISIBLE

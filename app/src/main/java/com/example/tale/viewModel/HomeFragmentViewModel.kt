@@ -2,10 +2,8 @@ package com.example.tale.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.tale.model.FollowCheck
 import com.example.tale.model.StoryDetails
-import com.example.tale.model.UserDetails
-import com.example.tale.model.uid
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -16,8 +14,10 @@ import kotlinx.coroutines.launch
 class HomeFragmentViewModel:ViewModel() {
     var testData = MutableLiveData<LinkedHashMap<String,ArrayList<StoryDetails>>>()
     private val map = LinkedHashMap<String,ArrayList<StoryDetails>>()
-
+    private val uid = FirebaseAuth.getInstance().currentUser?.email
     fun fetchStory() {
+        testData.value?.clear()
+        map.clear()
         CoroutineScope(IO).launch {
         val db = Firebase.firestore
         if (uid != null) {
@@ -38,7 +38,6 @@ class HomeFragmentViewModel:ViewModel() {
                                                 array.add(documents.toObject(StoryDetails::class.java))
                                                 map[id] = array
                                                 testData.value = map
-                                                println("Hel:${testData.value!!.values} ${testData.value!!.keys}")
                                             }
                                         }
 

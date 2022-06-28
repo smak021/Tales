@@ -37,47 +37,6 @@
         android:gravity="center"
         />
 
-    <FrameLayout
-        android:visibility="gone"
-        android:id="@+id/welcomeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="30dp"
-        android:background="@drawable/welcome_border"
-        >
-        <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="match_parent"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            android:layout_height="200dp"
-            android:layout_gravity="bottom|start"
-            app:lottie_rawRes="@raw/welcome"/>
-        <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Welcome"
-            android:layout_marginTop="20dp"
-            android:textColor="?android:textColorPrimary"
-            android:gravity="center_horizontal"
-            android:textSize="30sp"
-            android:textStyle="bold"/>
-        <Button
-            android:id="@+id/skipDP"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Skip"
-            android:textColor="?android:textColorPrimary"
-            android:layout_gravity="end"
-            android:background="@android:color/transparent"
-            android:theme="@style/Widget.MaterialComponents.Button.TextButton"/>
 
-        <TextView
-            android:gravity="center"
-            android:layout_gravity="center_vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Update your profile picture"/>
-
-    </FrameLayout>
 
 </FrameLayout>

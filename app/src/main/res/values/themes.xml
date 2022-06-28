@@ -32,4 +32,10 @@
     <style name="Theme.MaterialComponents.DayNight.DarkActionBar.Launcher">
         <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>
+    <style name="Theme.Tale.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Tale.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Tale.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
