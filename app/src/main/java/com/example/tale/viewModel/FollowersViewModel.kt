@@ -14,20 +14,21 @@ class FollowersViewModel:ViewModel() {
 
     fun fetchFriends(){
         val db = Firebase.firestore
-        for ( value in followersL.value!!) {
-            println(value)
-            db.collection("users").whereEqualTo("email",value)
-                .get().addOnSuccessListener {
+        if (followersL.value!=null) {
+            for (value in followersL.value!!) {
+                println(value)
+                db.collection("users").whereEqualTo("email", value)
+                    .get().addOnSuccessListener {
 
-                for ( docs in it)
-                {
-                    array.add(docs.toObject(UserDetails::class.java))
-                    friends.value = array
+                        for (docs in it) {
+                            array.add(docs.toObject(UserDetails::class.java))
+                            friends.value = array
 
-                }
+                        }
+
+                    }
 
             }
-
         }
     }
 }

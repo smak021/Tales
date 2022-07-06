@@ -6,23 +6,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?attr/colorOnPrimary"
     tools:context=".tabs.HomeFragment">
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
+        android:layout_marginHorizontal="5dp"
         android:layout_height="match_parent">
-    <com.example.tale.misc.NestedScrollableHost
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/story_recycler"
             android:orientation="vertical"
             android:elevation="10dp"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:listitem="@layout/circular_image"/>
-
-    </com.example.tale.misc.NestedScrollableHost>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <TextView

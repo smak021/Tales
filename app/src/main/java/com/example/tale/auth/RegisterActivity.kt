@@ -1,6 +1,7 @@
 package com.example.tale.auth
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -17,14 +18,24 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         val db = Firebase.firestore
+
         registerButton.setOnClickListener{
             val userDetails = hashMapOf(
                 "full_name" to nameET.text.toString().trim(),
                 "email" to emailET.text.toString().trim(),
-                "phone" to phoneET.text.toString()
+                "phone" to phoneET.text.toString(),
+                "isVerified" to false
             )
+            //Check empty box
+
+            //Check for password
+
+            //check confirmation password
+
+            //valid mobile
+
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(emailET.text.toString().trim(), passET.text.toString().trim())
-                .addOnCompleteListener(this){
+                .addOnCompleteListener(this) {
                     if(it.isSuccessful)
                 {
 
@@ -38,15 +49,22 @@ class RegisterActivity : AppCompatActivity() {
                         .addOnFailureListener {
                             Log.w(TAG, "Failure")
                         }
-                Toast.makeText(this, "Successfully Registered",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Successfully Registered",Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this,ProfilePictureActivity::class.java))
                     finish()
                 }
-                else{
-                    Log.w(TAG,"Failed to add user")
+                else
+                {
+                    Log.w(TAG, "createUserWithEmail:failure", it.exception)
+                    Toast.makeText(baseContext, it.exception?.message.toString(),
+                        Toast.LENGTH_SHORT).show()
                 }
 
 
             }
+                .addOnFailureListener {
+                    Toast.makeText(this, it.message, Toast.LENGTH_SHORT)
+                }
         }
     }
 

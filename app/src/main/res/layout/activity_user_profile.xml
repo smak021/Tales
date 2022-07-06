@@ -9,7 +9,7 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
+        android:id="@+id/upCardView2"
         android:layout_width="105dp"
         android:layout_height="105dp"
         android:layout_marginStart="20dp"
@@ -18,11 +18,11 @@
         android:backgroundTint="@color/white"
         app:cardCornerRadius="150dp"
         app:cardElevation="10dp"
-        app:layout_constraintBottom_toBottomOf="@id/profileBox"
+        app:layout_constraintBottom_toBottomOf="@id/upProfileBox"
         app:layout_constraintEnd_toEndOf="parent">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
+            android:id="@+id/upCardView"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
@@ -30,19 +30,20 @@
             app:cardCornerRadius="150dp">
 
             <ImageView
+                android:id="@+id/upProfilePic"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:elevation="0dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/temp2" />
+                android:src="@drawable/profile" />
         </androidx.cardview.widget.CardView>
 
     </androidx.cardview.widget.CardView>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/profileBox"
+        android:id="@+id/upProfileBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/profilegradient"
@@ -52,7 +53,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/upTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -61,10 +62,10 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider" />
+            app:layout_constraintTop_toBottomOf="@id/upDivider" />
 
         <TextView
-            android:id="@+id/bio"
+            android:id="@+id/upBio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
@@ -75,10 +76,10 @@
             android:text="🔸 May 21\n🔸 Science Enthusiast"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/upTextView" />
 
         <com.google.android.material.divider.MaterialDivider
-            android:id="@+id/divider"
+            android:id="@+id/upDivider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginHorizontal="15dp"
@@ -87,20 +88,20 @@
             android:alpha="0.3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/followersLayout" />
+            app:layout_constraintTop_toBottomOf="@id/upFollowersLayout" />
 
         <LinearLayout
-            android:id="@+id/storiesLayout"
+            android:id="@+id/upStoriesLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:orientation="vertical"
-            app:layout_constraintEnd_toStartOf="@id/followersLayout"
+            app:layout_constraintEnd_toStartOf="@id/upFollowersLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/stories"
+                android:id="@+id/upStories"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tales"
@@ -108,7 +109,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/story_count"
+                android:id="@+id/upStory_count"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="0"
@@ -122,17 +123,17 @@
 
 
         <LinearLayout
-            android:id="@+id/followersLayout"
+            android:id="@+id/upFollowersLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:orientation="vertical"
-            app:layout_constraintEnd_toStartOf="@id/followingLayout"
-            app:layout_constraintStart_toEndOf="@id/storiesLayout"
+            app:layout_constraintEnd_toStartOf="@id/upFollowingLayout"
+            app:layout_constraintStart_toEndOf="@id/upStoriesLayout"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/followers"
+                android:id="@+id/upFollowers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Followers"
@@ -140,7 +141,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/followers_count"
+                android:id="@+id/upFollowers_count"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="0"
@@ -153,7 +154,7 @@
 
 
         <LinearLayout
-            android:id="@+id/followingLayout"
+            android:id="@+id/upFollowingLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -162,11 +163,11 @@
             android:focusable="true"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/followersLayout"
+            app:layout_constraintStart_toEndOf="@id/upFollowersLayout"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/following"
+                android:id="@+id/upFollowing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Following"
@@ -174,7 +175,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/following_count"
+                android:id="@+id/upFollowing_count"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="0"
@@ -188,17 +189,17 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
-        android:id="@+id/buttomLayout"
+        android:id="@+id/upButtomLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_margin="2dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/profileBox"
-        app:layout_constraintEnd_toStartOf="@id/cardView2">
+        app:layout_constraintTop_toBottomOf="@id/upProfileBox"
+        app:layout_constraintEnd_toStartOf="@id/upCardView2">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/followButton"
+            android:id="@+id/upFollowButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Follow"
@@ -207,7 +208,7 @@
             android:background="@drawable/button_design"
             />
         <androidx.appcompat.widget.AppCompatButton
-
+            android:id="@+id/upMessageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Message"
@@ -220,20 +221,35 @@
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/upLottieLayout"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/buttomLayout"
+        android:padding="3dp"
+        android:layout_margin="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/upButtomLayout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/upTalesRecyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:nestedScrollingEnabled="true"
+            tools:listitem="@layout/tales_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/noresultLT"
+            android:id="@+id/upNoresultLT"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_marginTop="100dp"
-            app:layout_constraintBottom_toTopOf="@id/info"
+            app:layout_constraintBottom_toTopOf="@id/upInfo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -241,18 +257,18 @@
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/nothing_toshow" />
         <TextView
-            android:id="@+id/info"
+            android:id="@+id/upInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nothing to show here"
             android:layout_gravity="center_horizontal"
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:alpha="0.5"
             android:layout_marginBottom="50dp"
             android:textColor="?android:textColorPrimary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/noresultLT"
+            app:layout_constraintTop_toBottomOf="@id/upNoresultLT"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

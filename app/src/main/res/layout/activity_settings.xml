@@ -41,44 +41,172 @@
                 android:layout_height="2dp"
                 android:layout_marginHorizontal="10dp"
                 android:background="?android:attr/listDivider" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                android:padding="20dp">
 
-            <TextView
+                <ImageView
+                    android:scaleType="fitCenter"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/person"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginHorizontal="10dp"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="General"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                        android:textColor="?android:textColorPrimary"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                        android:text="Edit personal details"
+
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="?attr/selectableItemBackground"
+    android:padding="20dp"
+    >
+    <ImageView
+        android:layout_width="40dp"
+        android:scaleType="fitCenter"
+        android:layout_height="match_parent"
+        android:src="@drawable/security"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="10dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Security"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+            android:textColor="?android:textColorPrimary"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+            android:text="Change password"
+
+            />
+    </LinearLayout>
+</LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"
+            android:padding="20dp"
+            >
+            <ImageView
+                android:layout_width="40dp"
+                android:scaleType="fitCenter"
+                android:layout_height="match_parent"
+                android:src="@drawable/account_circle"/>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="General"
-                android:textSize="20sp"
-                android:textColor="?android:textColorPrimary"
-                android:padding="10dp"/>
-            <TextView
+                android:layout_marginHorizontal="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Account"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                    android:textColor="?android:textColorPrimary"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                    android:text="Edit account settings"
+
+                    />
+
+            </LinearLayout>
+           </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"
+            android:longClickable="true"
+            android:padding="20dp"
+            >
+            <ImageView
+                android:layout_width="40dp"
+                android:scaleType="fitCenter"
+                android:layout_height="match_parent"
+                android:src="@drawable/lock"/>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Security"
-                android:textSize="20sp"
-                android:textColor="?android:textColorPrimary"
-                android:padding="10dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Account"
-                android:textSize="20sp"
-                android:textColor="?android:textColorPrimary"
-                android:padding="10dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Privacy"
-                android:textSize="20sp"
-                android:textColor="?android:textColorPrimary"
-                android:padding="10dp"/>
+                android:layout_marginHorizontal="10dp"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Privacy"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                    android:textColor="?android:textColorPrimary"
+                   />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                    android:text="Edit privacy details"
+
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
 
             <Button
                 android:id="@+id/logoutButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Logout"
-                android:background="@android:color/transparent"
+                android:layout_marginHorizontal="20dp"
+                android:drawableLeft="@drawable/logout"
+                style="@style/Widget.Material3.Button.TextButton.Icon"
                 android:textColor="?android:textColorPrimary"
-                android:layout_gravity="bottom"
                 android:textSize="16sp"/>
 
         </LinearLayout>

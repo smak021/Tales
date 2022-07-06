@@ -7,10 +7,13 @@
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable-v24/profilegradient.xml" value="0.1695" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable-v24/search_border.xml" value="0.1" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/drawable/account_circle.xml" value="0.1315" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/drawable/add_circle.xml" value="0.1315" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/button_design.xml" value="0.1715" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/capture.xml" value="0.1315" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/edit_text.xml" value="0.1315" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/exit.xml" value="0.1" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/drawable/forward_arrow.xml" value="0.1" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/gradient.xml" value="0.1695" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/home.xml" value="0.1" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.1" />
@@ -19,39 +22,57 @@
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/ic_border.xml" value="0.166" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/drawable/image_placeholder.xml" value="0.1315" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/drawable/lock.xml" value="0.1315" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/drawable/logout.xml" value="0.1315" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/drawable/message.xml" value="0.1315" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/notification.xml" value="0.1725" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/drawable/person-48px.xml" value="0.1315" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/profile.xml" value="0.1695" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/drawable/security.xml" value="0.1315" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/settings.xml" value="0.1" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/drawable/share.xml" value="0.1315" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/splash_screen.xml" value="0.1" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/story_border.xml" value="0.166" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/drawable/stroke.xml" value="0.1315" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/stry_brdr.xml" value="0.14666666666666667" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/text.xml" value="0.1315" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/text_border.xml" value="0.1315" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/drawable/toggle.xml" value="0.1" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/drawable/toggle_camera.xml" value="0.1" />
         <entry key="..\:/Apps/Tale/app/src/main/res/drawable/welcome_border.xml" value="0.1695" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/layout-v28/followers_layout.xml" value="0.16354166666666667" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_collapse_test2.xml" value="0.16666666666666666" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_contacts.xml" value="0.12270200940572894" />
         <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_follower.xml" value="0.22" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_following.xml" value="0.1" />
         <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_friends_discovery.xml" value="0.13424540401881147" />
         <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_gallery.xml" value="0.1" />
         <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_login.xml" value="0.14666666666666667" />
         <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_main.xml" value="0.14666666666666667" />
-        <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_post_preview.xml" value="0.4466666666666667" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_post_preview.xml" value="0.33404255319148934" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_profile_picture.xml" value="0.13333333333333333" />
         <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_register.xml" value="0.22" />
         <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_search.xml" value="0.13424540401881147" />
-        <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_settings.xml" value="0.1" />
-        <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_story.xml" value="0.16666666666666666" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_settings.xml" value="0.22" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_story.xml" value="0.14647887323943662" />
         <entry key="..\:/Apps/Tale/app/src/main/res/layout/activity_user_profile.xml" value="0.14666666666666667" />
-        <entry key="..\:/Apps/Tale/app/src/main/res/layout/circular_image.xml" value="0.3333333333333333" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/layout/circular_image.xml" value="0.48214285714285715" />
         <entry key="..\:/Apps/Tale/app/src/main/res/layout/content_friends_discovery.xml" value="0.13424540401881147" />
         <entry key="..\:/Apps/Tale/app/src/main/res/layout/followers_layout.xml" value="0.22" />
         <entry key="..\:/Apps/Tale/app/src/main/res/layout/fragment_first.xml" value="0.13424540401881147" />
-        <entry key="..\:/Apps/Tale/app/src/main/res/layout/fragment_home.xml" value="0.16666666666666666" />
-        <entry key="..\:/Apps/Tale/app/src/main/res/layout/fragment_post.xml" value="0.3333333333333333" />
-        <entry key="..\:/Apps/Tale/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
-        <entry key="..\:/Apps/Tale/app/src/main/res/layout/friends_row.xml" value="0.3333333333333333" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/layout/fragment_home.xml" value="0.13846153846153847" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/layout/fragment_notification.xml" value="0.13424540401881147" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/layout/fragment_post.xml" value="0.14666666666666667" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/layout/fragment_profile.xml" value="0.16666666666666666" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/layout/friends_row.xml" value="0.29714285714285715" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/layout/gallery_bottom_sheet.xml" value="0.1333903377511757" />
         <entry key="..\:/Apps/Tale/app/src/main/res/layout/gallery_image_grid.xml" value="0.4466666666666667" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/layout/tales_view.xml" value="0.4466666666666667" />
         <entry key="..\:/Apps/Tale/app/src/main/res/layout/text_box.xml" value="0.1333903377511757" />
         <entry key="..\:/Apps/Tale/app/src/main/res/menu-v26/menu.xml" value="0.1" />
         <entry key="..\:/Apps/Tale/app/src/main/res/menu/menu.xml" value="0.22" />
-        <entry key="..\:/Apps/Tale/app/src/main/res/menu/profmenu.xml" value="0.1" />
+        <entry key="..\:/Apps/Tale/app/src/main/res/menu/profmenu.xml" value="0.22" />
         <entry key="..\:/Apps/Tale/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1315" />
         <entry key="..\:/Apps/Tale/app/src/main/res/mipmap-anydpi-v26/tales_launcher.xml" value="0.1" />
         <entry key="..\:/Apps/Tale/app/src/main/res/mipmap-anydpi-v26/tales_launcher_round.xml" value="0.1315" />

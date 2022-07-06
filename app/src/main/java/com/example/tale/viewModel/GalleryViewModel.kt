@@ -27,7 +27,7 @@ class GalleryViewModel:ViewModel() {
                     val path = cursor.getString(dataColIndex)
                     arrPath.add(path)
                     imagePath.value = arrPath
-                    Log.i("PATH", path)
+                    //Log.i("PATH", path)
                 }
 
             }

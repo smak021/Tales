@@ -8,7 +8,15 @@
     android:background="?attr/colorOnPrimary"
     tools:context=".tabs.PostFragment">
     <!-- TODO: Update blank fragment layout -->
-
+<TextView
+    android:id="@+id/permissionInfo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="Permission to use Camera is denied. Please allow it in settings to use Camera"
+    android:gravity="center"
+    android:visibility="gone"
+    android:elevation="2dp"
+    android:textColor="@color/white"/>
     <TextView
         android:id="@+id/textView2"
         android:layout_width="0dp"
@@ -65,4 +73,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/toggle_camera"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="20dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/toggle_camera"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,27 @@
 package com.example.tale.model
 
-class UserDetails {
+import android.text.BoringLayout
+import java.io.Serializable
+
+
+class UserDetails: Serializable {
     private var full_name: String? = null
     private var email: String? = null
     private var phone: String? = null
+    private var userPic:String? = null
+    private var isVerified:Boolean = false
 
+    fun getisVerified():Boolean{
+        return isVerified
+    }
 
+    fun getuserPic(): String? {
+        return userPic
+    }
+
+    fun setuserPic(userPic: String?) {
+        this.userPic = userPic
+    }
     fun getfull_name(): String? {
         return full_name
     }

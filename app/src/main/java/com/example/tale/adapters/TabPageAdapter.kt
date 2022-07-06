@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.tale.tabs.HomeFragment
+import com.example.tale.tabs.MessageFragment
 import com.example.tale.tabs.PostFragment
 import com.example.tale.tabs.ProfileFragment
 
@@ -18,8 +19,11 @@ class TabPageAdapter(
         return when(position){
             0 -> PostFragment()
             1 -> HomeFragment()
-            2 -> ProfileFragment()
+            2 -> MessageFragment()
+            3 -> ProfileFragment()
             else -> null!!
         }
     }
+
+
 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorOnPrimary"
-    tools:context=".misc.FollowerActivity">
+    tools:context=".misc.FollowingActivity">
 
     <TextView
         android:id="@+id/titleText"
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:padding="10dp"
-        android:text="Followers"
+        android:text="Following"
         android:textColor="?android:textColorPrimary"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"

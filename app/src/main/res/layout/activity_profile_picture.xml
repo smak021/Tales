@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".auth.ProfilePictureActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/welcomeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/welcome_border"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+<Button
+    android:id="@+id/clearIv"
+    android:visibility="gone"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Clear"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    android:background="@color/white"
+    android:backgroundTint="@color/white"
+    android:layout_margin="20dp"
+    />
+        <TextView
+            android:id="@+id/profile_pic_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Profile Picture"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+            android:gravity="center_horizontal"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/profile_pic_info"/>
+        <TextView
+            android:id="@+id/profile_pic_info"
+            android:gravity="center"
+            android:layout_gravity="clip_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="Update your profile picture"
+            app:layout_constraintTop_toBottomOf="@id/profile_pic_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/profile_pic_select"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/profile_pic_select"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center_horizontal"
+            app:cardCornerRadius="40dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:id="@+id/profile_picIV"
+                android:layout_width="match_parent"
+                android:src="@drawable/add_circle"
+                android:scaleType="centerCrop"
+                android:layout_height="match_parent"/>
+
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/profile_pic_info2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You can change the picture later"
+            android:layout_margin="20dp"
+            android:textStyle="italic"
+            android:textColor="@color/track"
+            android:layout_gravity="center_horizontal"
+            app:layout_constraintTop_toBottomOf="@id/profile_pic_select"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/nextIB"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/capture"
+            android:src="@drawable/forward_arrow"
+            android:elevation="10dp"
+            android:layout_margin="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="wrap_content"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        android:layout_height="200dp"
+        android:layout_gravity="bottom"
+        app:lottie_rawRes="@raw/welcome"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

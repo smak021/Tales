@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.core.view.ViewCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.tale.MainActivity
@@ -36,7 +37,7 @@ class PostPreviewActivity : AppCompatActivity() {
         setContentView(R.layout.activity_post_preview)
         val user = FirebaseAuth.getInstance().currentUser
         val email = user?.email
-        val exten: String? = null
+
         val time = Calendar.getInstance().time
         val path: String = intent.getSerializableExtra("path") as String
         Glide.with(this).load(path)
@@ -53,7 +54,7 @@ class PostPreviewActivity : AppCompatActivity() {
             val randomNumber: Int = Random().nextInt(100000)
             val dateTime = LocalDateTime.now()
             val tim = dateTime.format(DateTimeFormatter.ofPattern("ydMHmss"))
-            val filename = "IMG_${randomNumber}_$tim$exten"
+            val filename = "IMG_${randomNumber}_$tim"
 
             addStorage(pathUri, filename, email, time)
         }

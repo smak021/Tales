@@ -10,12 +10,12 @@ import com.example.tale.adapters.FollowersListAdapter
 import com.example.tale.model.*
 import com.example.tale.viewModel.FollowersViewModel
 
-class FollowerActivity : AppCompatActivity() {
+class FollowingActivity : AppCompatActivity() {
     private lateinit var adapter: FollowersListAdapter
     private var list:MutableList<FollowersDetails>?= mutableListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_follower)
+        setContentView(R.layout.activity_following)
 
         val recyclerView = findViewById<RecyclerView>(R.id.followersRecycler)
         recyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
@@ -25,5 +25,8 @@ class FollowerActivity : AppCompatActivity() {
            adapter = FollowersListAdapter(baseContext, it)
            recyclerView.adapter = adapter
        }
+
+
+
     }
 }
